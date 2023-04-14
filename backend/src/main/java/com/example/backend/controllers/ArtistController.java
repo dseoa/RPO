@@ -1,18 +1,21 @@
 package com.example.backend.controllers;
 
+import com.example.backend.models.Artist;
+import com.example.backend.models.Country;
+import com.example.backend.repositories.ArtistRepository;
+import com.example.backend.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.backend.models.Artist;
-import com.example.backend.models.Country;
-import com.example.backend.repositories.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
 public class ArtistController {
