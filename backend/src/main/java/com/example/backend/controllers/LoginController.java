@@ -20,6 +20,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/auth")
 public class LoginController {
+
+
     @Autowired
     private UserRepository userRepository;
 
