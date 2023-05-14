@@ -28,7 +28,7 @@ public class Museum {
     @Column(name = "location", nullable = false)
     public String location;
 
-//       @JsonIgnore
+    //   @JsonIgnore
 //    @OneToMany
 //    public List<Painting> paintings = new ArrayList<>();
 

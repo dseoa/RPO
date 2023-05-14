@@ -26,6 +26,9 @@ public class User {
     @Column(name = "password")
     public String password;
 
+    @Transient
+    public String np;
+
     @Column(name = "email", unique = true, nullable = false)
     public String email;
 
@@ -33,11 +36,14 @@ public class User {
     @Column(name = "salt")
     public String salt;
 
+
     @Column(name = "token")
     public String token;
 
+
     @Column(name = "activity")
     public LocalDateTime activity;
+
 
     @ManyToMany(mappedBy = "users")
     public Set<Museum> museums = new HashSet<>();
@@ -51,4 +57,3 @@ public class User {
         m.users.remove(this);
     }
 }
-

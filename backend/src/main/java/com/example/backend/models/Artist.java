@@ -2,8 +2,8 @@
 package com.example.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +12,7 @@ import java.util.List;
 @Access(AccessType.FIELD)
 public class Artist {
 
-    public Artist() {
-    }
+    public Artist() { }
 
     public Artist(Long id) {
         this.id = id;
@@ -22,25 +21,19 @@ public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
-    public long id;
+    public Long id;
 
     @Column(name = "name", nullable = false, unique = true)
     public String name;
 
-    @Column(name = "age", nullable = false)
-    public String age;
+    @Column(name = "century", nullable = false)
+    public String century;
 
     @ManyToOne()
-    @JoinColumn(name = "countryid")
+    @JoinColumn(name="countryid")
     public Country country;
 
-
     @JsonIgnore
-    @OneToMany(mappedBy = "country")
-    public List<Artist> artists = new ArrayList<Artist>();
-
-
+    @OneToMany(mappedBy = "artist")
+    public List<Painting> paintings = new ArrayList<Painting>();
 }
-
-
-

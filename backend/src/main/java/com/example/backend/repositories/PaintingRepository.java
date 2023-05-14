@@ -6,5 +6,4 @@ import com.example.backend.models.Painting;
 
 @Repository
 public interface PaintingRepository extends JpaRepository<Painting, Long> {
-
 }

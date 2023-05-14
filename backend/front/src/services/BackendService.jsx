@@ -15,6 +15,58 @@ class BackendService {
         return axios.get(`${AUTH_URL}/logout`, {headers: {Authorization: Utils.getToken()}})
     }
 
+
+    /* Countries */
+
+    retrieveAllCountries(page, limit) {
+        return axios.get(`${API_URL}/countries`);
+    }
+
+    retrieveCountry(id) {
+        return axios.get(`${API_URL}/countries/${id}`);
+    }
+
+    createCountry(country) {
+        return axios.post(`${API_URL}/countries`, country);
+    }
+
+    updateCountry(country) {
+        return axios.put(`${API_URL}/countries/${country.id}`, country);
+    }
+
+    deleteCountries(countries) {
+        return axios.post(`${API_URL}/deletecountries`, countries);
+    }
+
+
+    retrieveAllCountries(page, limit) {
+        return axios.get(`${API_URL}/countries?page=${page}&limit=${limit}`);
+    }
+
+
+    /* Artists */
+
+    retrieveAllArtists(page, limit) {
+        return axios.get(`${API_URL}/artists?page=${page}&limit=${limit}`);
+    }
+
+    retrieveArtist(id) {
+        return axios.get(`${API_URL}/artists/${id}`);
+    }
+
+    createArtist(artist) {
+        return axios.post(`${API_URL}/artists`, artist);
+    }
+
+    updateArtist(artist) {
+        return axios.put(`${API_URL}/artists/${artist.id}`, artist);
+    }
+
+    deleteArtists(artists) {
+        return axios.post(`${API_URL}/deleteartists`, artists);
+    }
+
+
 }
 
 function showError(msg)
@@ -45,6 +97,7 @@ axios.interceptors.response.use(undefined,
             showError(error.message)
         return Promise.reject(error);
     })
+
 
 
 export default new BackendService()

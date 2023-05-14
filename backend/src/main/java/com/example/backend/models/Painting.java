@@ -2,12 +2,12 @@ package com.example.backend.models;
 
 import javax.persistence.*;
 
-@Entity // таблица в базе
-@Table(name = "paintings") //имя это таблицы paintings
-@Access(AccessType.FIELD) // разрешаем доступ к полям класса
+@Entity
+@Table(name="paintings")
+@Access(AccessType.FIELD)
 public class Painting {
+    public Painting() {}
 
-    public Painting() { }
     public Painting(Long id) { this.id = id; }
 
     @Id
@@ -15,17 +15,18 @@ public class Painting {
     @Column(name = "id", updatable = false, nullable = false)
     public long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     public String name;
 
-    @Column(name = "year")
-    public String year;
-
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name="artistid")
     public Artist artist;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name="museumid")
     public Museum museum;
+
+    @Column(name = "year")
+    public long year;
+
 }

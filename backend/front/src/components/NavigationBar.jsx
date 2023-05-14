@@ -22,12 +22,11 @@ const NavigationBar = (props) => {
     return (
         <Navbar bg="light" expand="lg">
             <button type="button"
-                    style={{marginLeft: "10px"}}
                     className="btn btn-outline-secondary mr-2"
                     onClick={props.toggleSideBar}>
-                <FontAwesomeIcon icon={faBars} />
+                <FontAwesomeIcon icon={ faBars} />
             </button>
-            <Navbar.Brand style={{marginLeft: "10px"}}>My RPO</Navbar.Brand>
+            <Navbar.Brand>myRPO</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
